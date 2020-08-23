@@ -5,10 +5,11 @@ import requests as rq
 class Client:
     BASE_URL = "https://api.gls-group.eu/public/v1"
 
-    def __init__(self, username, password, language='fr', sandbox=False):
+    def __init__(self, shipper_id, username, password, language='fr', sandbox=False):
         if language not in ['en', 'fr', 'dk', 'de']:
             raise ValueError("Invalid Language")
 
+        self._shipper_id = shipper_id
         self._username = username
         self._language = language
         self._sandbox = sandbox
